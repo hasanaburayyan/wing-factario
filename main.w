@@ -8,4 +8,6 @@ let workload = new containers.Workload(
   public: true
 ) as "mysite";
 
-new cloud.Endpoint(workload.publicUrl!) as "myapp";
+new cloud.Function(inflight () => {
+  log(workload.publicUrl!);
+}) as "get_url";
