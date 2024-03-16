@@ -3,11 +3,9 @@ bring cloud;
 
 let workload = new containers.Workload(
   name: "hello",
-  image: "nginx",
-  port: 80,
+  image: "grafana/grafana",
+  port: 3000,
   public: true
 ) as "mysite";
 
-new cloud.Function(inflight () => {
-  log(workload.publicUrl!);
-}) as "get_url";
+new cloud.Endpoint(workload.publicUrl!);
