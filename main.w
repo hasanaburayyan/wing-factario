@@ -8,10 +8,4 @@ let workload = new containers.Workload(
   public: true
 ) as "mysite";
 
-let b = new cloud.Bucket();
-
-new cloud.Function(inflight () => {
-  b.put("blah.txt", "hello");
-}) as "put file";
-
 new cloud.Endpoint(workload.publicUrl!) as "myapp";
