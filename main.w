@@ -3,8 +3,8 @@ bring cloud;
 
 let workload = new containers.Workload(
   name: "hello",
-  image: "hasanaburayyan/stupid_app",
-  port: 3000,
+  image: "nginx",
+  port: 80,
   public: true
 ) as "mysite";
 
