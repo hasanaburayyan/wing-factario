@@ -3,8 +3,8 @@ bring cloud;
 
 let workload = new containers.Workload(
   name: "hello",
-  image: "nginx",
-  port: 80,
+  image: "hasanaburayyan/stupid_app",
+  port: 3000,
   public: true
 ) as "mysite";
 
@@ -14,4 +14,4 @@ new cloud.Function(inflight () => {
   b.put("blah.txt", "hello");
 }) as "put file";
 
-new cloud.Endpoint(workload.publicUrl!) as "nginx server";
+new cloud.Endpoint(workload.publicUrl!) as "myapp";
