@@ -1,11 +1,11 @@
-bring containers;
+bring "./workload.sim.w" as workloads;
 bring cloud;
 
-let workload = new containers.Workload(
+let workload = new workloads.Workload_sim(
   name: "hello",
-  image: "hasanaburayyan/stupid_app:latest",
-  port: 3000,
+  image: "factoriotools/factorio",
+  port: 27015,
   public: true
 ) as "mysite";
 
-new cloud.Endpoint(workload.publicUrl ?? "localhost:3000");
+new cloud.Endpoint(workload.publicUrl!);
